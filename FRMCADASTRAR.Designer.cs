@@ -40,6 +40,10 @@
             INPUTSENHA2 = new TextBox();
             BTTCADASTRAR = new Button();
             BTTCANCELAR = new Button();
+            BRANCO = new Label();
+            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            BRANCO2 = new Label();
+            VERIFICASENHA = new Label();
             SuspendLayout();
             // 
             // label1
@@ -93,6 +97,7 @@
             INPUTNOME.Name = "INPUTNOME";
             INPUTNOME.Size = new Size(100, 23);
             INPUTNOME.TabIndex = 5;
+            INPUTNOME.TextChanged += INPUTNOME_TextChanged;
             // 
             // INPUTUSUARIO
             // 
@@ -100,6 +105,7 @@
             INPUTUSUARIO.Name = "INPUTUSUARIO";
             INPUTUSUARIO.Size = new Size(100, 23);
             INPUTUSUARIO.TabIndex = 6;
+            INPUTUSUARIO.TextChanged += INPUTUSUARIO_TextChanged;
             // 
             // INPUTTELEFONE
             // 
@@ -114,6 +120,7 @@
             INPUTSENHA.Name = "INPUTSENHA";
             INPUTSENHA.Size = new Size(100, 23);
             INPUTSENHA.TabIndex = 8;
+            INPUTSENHA.TextChanged += INPUTSENHA_TextChanged;
             // 
             // INPUTSENHA2
             // 
@@ -124,6 +131,7 @@
             // 
             // BTTCADASTRAR
             // 
+            BTTCADASTRAR.Enabled = false;
             BTTCADASTRAR.Location = new Point(363, 38);
             BTTCADASTRAR.Name = "BTTCADASTRAR";
             BTTCADASTRAR.Size = new Size(112, 65);
@@ -140,11 +148,41 @@
             BTTCANCELAR.Text = "CANCELAR";
             BTTCANCELAR.UseVisualStyleBackColor = true;
             // 
+            // BRANCO
+            // 
+            BRANCO.AutoSize = true;
+            BRANCO.Location = new Point(83, 20);
+            BRANCO.Name = "BRANCO";
+            BRANCO.Size = new Size(225, 15);
+            BRANCO.TabIndex = 12;
+            BRANCO.Text = "!ESTE CAMPO NÃO PODE FICAR VAZIO✖";
+            // 
+            // BRANCO2
+            // 
+            BRANCO2.AutoSize = true;
+            BRANCO2.Location = new Point(83, 100);
+            BRANCO2.Name = "BRANCO2";
+            BRANCO2.Size = new Size(225, 15);
+            BRANCO2.TabIndex = 13;
+            BRANCO2.Text = "!ESTE CAMPO NÃO PODE FICAR VAZIO✖";
+            // 
+            // VERIFICASENHA
+            // 
+            VERIFICASENHA.AutoSize = true;
+            VERIFICASENHA.Location = new Point(83, 335);
+            VERIFICASENHA.Name = "VERIFICASENHA";
+            VERIFICASENHA.Size = new Size(165, 15);
+            VERIFICASENHA.TabIndex = 14;
+            VERIFICASENHA.Text = "AS SENHAS NÃO SÃO IGUAIS!";
+            // 
             // FRMCADASTRAR
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(VERIFICASENHA);
+            Controls.Add(BRANCO2);
+            Controls.Add(BRANCO);
             Controls.Add(BTTCANCELAR);
             Controls.Add(BTTCADASTRAR);
             Controls.Add(INPUTSENHA2);
@@ -160,6 +198,7 @@
             Name = "FRMCADASTRAR";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FRMCADASTRAR";
+            Load += FRMCADASTRAR_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -178,5 +217,9 @@
         private TextBox INPUTSENHA2;
         private Button BTTCADASTRAR;
         private Button BTTCANCELAR;
+        private Label BRANCO;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private Label BRANCO2;
+        private Label VERIFICASENHA;
     }
 }
