@@ -21,7 +21,6 @@ namespace AGENDAFODA
         {
             FRMCADASTRAR PAGCADASTRO = new FRMCADASTRAR();
             PAGCADASTRO.Show();
-            this.Hide();
         }
 
         private void INPUTEMAIL_TextChanged(object sender, EventArgs e)
