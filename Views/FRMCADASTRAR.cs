@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AGENDAFODA.Data;
+using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -51,12 +53,12 @@ namespace AGENDAFODA
             if (INPUTSENHA.Text.Length > 8)
             {
                 BTTCADASTRAR.Enabled = true;
-                
+
             }
             else
             {
                 BTTCADASTRAR.Enabled = false;
-                
+
             }
             if (INPUTSENHA.Text != INPUTSENHA2.Text)
             {
@@ -87,6 +89,22 @@ namespace AGENDAFODA
         private void INPUTSENHA_TextChanged(object sender, EventArgs e)
         {
             tamanhosenha();
+        }
+
+        private void BTTCADASTRAR_Click(object sender, EventArgs e)
+        {
+
+            MySqlConnection conexao = ConexaoDB.conexaodb();
+            conexao.Open();
+            string sql = $"INSERT INTO tbUsuarios (nome, usuario, telefone, senha) VALUES (@nome, @usuario, @telefone, @senha)";
+            MySqlCommand comando = new MySqlCommand(sql, conexao);
+            comando.Parameters.AddWithValue("@nome", INPUTNOME.Text);
+            comando.Parameters.AddWithValue("@usuario", INPUTUSUARIO.Text);
+            comando.Parameters.AddWithValue("@telefone", INPUTTELEFONE.Text);
+            comando.Parameters.AddWithValue("@senha", INPUTSENHA.Text);
+            conexao.Close();
+            MessageBox.Show("CADASTRO REALIZADO COM SUCESSO!");
+            this.Visible = false;
         }
     }
 }

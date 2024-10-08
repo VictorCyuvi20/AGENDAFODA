@@ -138,6 +138,7 @@
             BTTCADASTRAR.TabIndex = 10;
             BTTCADASTRAR.Text = "CADASTRAR";
             BTTCADASTRAR.UseVisualStyleBackColor = true;
+            BTTCADASTRAR.Click += BTTCADASTRAR_Click;
             // 
             // BTTCANCELAR
             // 
