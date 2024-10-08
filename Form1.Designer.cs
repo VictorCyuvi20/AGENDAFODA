@@ -85,6 +85,7 @@
             BTTCADRATRO.Size = new Size(115, 15);
             BTTCADRATRO.TabIndex = 5;
             BTTCADRATRO.Text = "Ou cadastre-se aqui!";
+            BTTCADRATRO.Click += BTTCADRATRO_Click;
             // 
             // Form1
             // 
@@ -98,6 +99,7 @@
             Controls.Add(INPUTEMAIL);
             Controls.Add(INPUTSENHA);
             Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             ResumeLayout(false);
             PerformLayout();

@@ -6,5 +6,12 @@ namespace AGENDAFODA
         {
             InitializeComponent();
         }
+
+        private void BTTCADRATRO_Click(object sender, EventArgs e)
+        {
+            FRMCADASTRAR PAGCADASTRO = new FRMCADASTRAR();
+            PAGCADASTRO.Show();
+            this.Hide();
+        }
     }
 }
