@@ -158,6 +158,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "FRMCADASTRAR";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FRMCADASTRAR";
             ResumeLayout(false);
             PerformLayout();

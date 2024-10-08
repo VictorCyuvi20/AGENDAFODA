@@ -42,6 +42,7 @@
             INPUTSENHA.Name = "INPUTSENHA";
             INPUTSENHA.Size = new Size(187, 23);
             INPUTSENHA.TabIndex = 0;
+            INPUTSENHA.TextChanged += INPUTSENHA_TextChanged;
             // 
             // INPUTEMAIL
             // 
@@ -49,6 +50,7 @@
             INPUTEMAIL.Name = "INPUTEMAIL";
             INPUTEMAIL.Size = new Size(187, 23);
             INPUTEMAIL.TabIndex = 1;
+            INPUTEMAIL.TextChanged += INPUTEMAIL_TextChanged;
             // 
             // label1
             // 
@@ -70,6 +72,7 @@
             // 
             // BTTENTRAR
             // 
+            BTTENTRAR.Enabled = false;
             BTTENTRAR.Location = new Point(330, 262);
             BTTENTRAR.Name = "BTTENTRAR";
             BTTENTRAR.Size = new Size(88, 34);
@@ -85,6 +88,7 @@
             BTTCADRATRO.Size = new Size(115, 15);
             BTTCADRATRO.TabIndex = 5;
             BTTCADRATRO.Text = "Ou cadastre-se aqui!";
+            BTTCADRATRO.Click += BTTCADRATRO_Click;
             // 
             // Form1
             // 
@@ -98,6 +102,7 @@
             Controls.Add(INPUTEMAIL);
             Controls.Add(INPUTSENHA);
             Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             ResumeLayout(false);
             PerformLayout();
