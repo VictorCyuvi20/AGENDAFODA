@@ -1,4 +1,5 @@
-﻿using AGENDAFODA.Data;
+﻿using AGENDAFODA.CONTROLER;
+using AGENDAFODA.Data;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -93,19 +94,24 @@ namespace AGENDAFODA
 
         private void BTTCADASTRAR_Click(object sender, EventArgs e)
         {
+            string nome = INPUTNOME.Text;
+            string usuario = INPUTUSUARIO.Text;
+            string telefone = INPUTTELEFONE.Text;
+            string senha = INPUTSENHA.Text;
 
-            MySqlConnection conexao = ConexaoDB.CriarConexao();
-            conexao.Open();
-            string sql = $"INSERT INTO tbUsuarios (nome, usuario, telefoone, senha) VALUES (@nome, @usuario, @telefoone, @senha)";
-            MySqlCommand comando = new MySqlCommand(sql, conexao);
-            comando.Parameters.AddWithValue("@nome", INPUTNOME.Text);
-            comando.Parameters.AddWithValue("@usuario", INPUTUSUARIO.Text);
-            comando.Parameters.AddWithValue("@telefoone", INPUTTELEFONE.Text);
-            comando.Parameters.AddWithValue("@senha", INPUTSENHA.Text);
-            comando.ExecuteNonQuery();
-            conexao.Close();
-            MessageBox.Show("CADASTRO REALIZADO COM SUCESSO!");
-            this.Visible = false;
+            UsuarioController controleUsuario = new UsuarioController();
+
+            bool resultado = controleUsuario.AddUsuario(nome, usuario, telefone, senha);
+
+            if (resultado)
+            {
+                MessageBox.Show("Cadastro realizado com sucesso");
+            }
+            else
+            {
+                MessageBox.Show("NÃO FOI POSSIVEL REALIZAR O CADASTRO");
+            }
+
         }
     }
 }
