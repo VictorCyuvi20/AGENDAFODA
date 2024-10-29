@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace AGENDAFODA.Data
 {
-    static public internal class ConexaoDB
+     internal static class ConexaoDB
     {
-        static public MySqlConnection conexaodb()
+        static public MySqlConnection CriarConexao()
         {
             string stringconexao = "Server=127.0.0.1;DAtabase=dbagenda;User ID=root;Password=root;";
 
-            MySqlConnection conexaoDB = new MySqlConnection(stringconexao);
+            MySqlConnection conexao = new MySqlConnection(stringconexao);
 
-            return ConexaoDB;
+            return conexao;
         }
     }
 }

@@ -94,14 +94,15 @@ namespace AGENDAFODA
         private void BTTCADASTRAR_Click(object sender, EventArgs e)
         {
 
-            MySqlConnection conexao = ConexaoDB.conexaodb();
+            MySqlConnection conexao = ConexaoDB.CriarConexao();
             conexao.Open();
-            string sql = $"INSERT INTO tbUsuarios (nome, usuario, telefone, senha) VALUES (@nome, @usuario, @telefone, @senha)";
+            string sql = $"INSERT INTO tbUsuarios (nome, usuario, telefoone, senha) VALUES (@nome, @usuario, @telefoone, @senha)";
             MySqlCommand comando = new MySqlCommand(sql, conexao);
             comando.Parameters.AddWithValue("@nome", INPUTNOME.Text);
             comando.Parameters.AddWithValue("@usuario", INPUTUSUARIO.Text);
-            comando.Parameters.AddWithValue("@telefone", INPUTTELEFONE.Text);
+            comando.Parameters.AddWithValue("@telefoone", INPUTTELEFONE.Text);
             comando.Parameters.AddWithValue("@senha", INPUTSENHA.Text);
+            comando.ExecuteNonQuery();
             conexao.Close();
             MessageBox.Show("CADASTRO REALIZADO COM SUCESSO!");
             this.Visible = false;
