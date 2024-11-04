@@ -1,3 +1,6 @@
+using AGENDAFODA.CONTROLER;
+using AGENDAFODA.Views;
+
 namespace AGENDAFODA
 {
     public partial class Form1 : Form
@@ -31,6 +34,27 @@ namespace AGENDAFODA
         private void INPUTSENHA_TextChanged(object sender, EventArgs e)
         {
             habilitarbotaologin();
+        }
+
+        private void BTTENTRAR_Click(object sender, EventArgs e)
+        {
+            UsuarioController controleusuario = new UsuarioController();
+
+            bool resultado = controleusuario.logUsuario(INPUTEMAIL.Text, INPUTSENHA.Text);
+
+            
+
+
+            if (resultado == true)
+            {
+                this.Hide();
+                FrmPrincipal frmPrincipal = new FrmPrincipal();
+                frmPrincipal.Show();
+            }
+            else
+            {
+                MessageBox.Show("ERROR");
+            }
         }
     }
 }
