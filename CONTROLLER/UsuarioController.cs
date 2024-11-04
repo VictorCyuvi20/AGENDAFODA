@@ -12,28 +12,36 @@ namespace AGENDAFODA.CONTROLER
     {
         public bool AddUsuario(string nome, string usuario, string telefone, string senha)
         {
-            MySqlConnection conexao = ConexaoDB.CriarConexao();
-            string sql = "INSERT INTO dbagenda (nome, usuario, telefone, senha) VALUES (@nome, @usuario, @telefone, @senha);";
+            try { 
 
-            conexao.Open();
+                MySqlConnection conexao = ConexaoDB.CriarConexao();
+                string sql = "INSERT INTO tbUsuarios (nome, usuario, telefone, senha) VALUES (@nome, @usuario, @telefone, @senha);";
 
-            MySqlCommand comando = new MySqlCommand(sql, conexao);
+                conexao.Open();
 
-            comando.Parameters.AddWithValue("@nome", nome);
-            comando.Parameters.AddWithValue("@usuario", usuario);
-            comando.Parameters.AddWithValue("@telefone", telefone);
-            comando.Parameters.AddWithValue("@senha", senha);
+                MySqlCommand comando = new MySqlCommand(sql, conexao);
 
-            int LinhasAfetadas = comando.ExecuteNonQuery();
+                comando.Parameters.AddWithValue("@nome", nome);
+                comando.Parameters.AddWithValue("@usuario", usuario);
+                comando.Parameters.AddWithValue("@telefone", telefone);
+                comando.Parameters.AddWithValue("@senha", senha);
 
-            conexao.Clone();
+                int LinhasAfetadas = comando.ExecuteNonQuery();
 
-            if (LinhasAfetadas > 0)
-            {
-                return true;
+                conexao.Close();
+
+                if (LinhasAfetadas > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-            else
+            catch (Exception erro)
             {
+                MessageBox.Show($"Erro ao efetuar o cadastro: {erro.Message}");
                 return false;
             }
 
