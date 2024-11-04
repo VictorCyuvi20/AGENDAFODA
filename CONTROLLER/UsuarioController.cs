@@ -46,5 +46,43 @@ namespace AGENDAFODA.CONTROLER
             }
 
         }
+
+        public bool logUsuario(string usuario, string senha)
+        {
+            try
+            {
+                MySqlConnection conexao = ConexaoDB.CriarConexao();
+
+                string sql =  @"select * from tbUsuarios
+                               where usuario = @usuario
+                               and BINARY senha = @senha;";
+
+                conexao.Open();
+
+                MySqlCommand comando = new MySqlCommand(sql, conexao);
+
+                comando.Parameters.AddWithValue("@usuario", usuario);
+                comando.Parameters.AddWithValue("@senha", senha);
+
+                MySqlDataReader resultado = comando.ExecuteReader();
+
+                if (resultado.Read())
+                {
+                    conexao.Close() ;
+                    return true;
+                }
+                else
+                {
+                    conexao.Close();
+                    return false;
+
+                }
+
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

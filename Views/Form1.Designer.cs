@@ -79,6 +79,7 @@
             BTTENTRAR.TabIndex = 4;
             BTTENTRAR.Text = "ENTRAR";
             BTTENTRAR.UseVisualStyleBackColor = true;
+            BTTENTRAR.Click += BTTENTRAR_Click;
             // 
             // BTTCADRATRO
             // 
