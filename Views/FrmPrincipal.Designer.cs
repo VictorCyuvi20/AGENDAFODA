@@ -28,12 +28,89 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "FrmPrincipal";
+            menuStrip1 = new MenuStrip();
+            aRQUIVOToolStripMenuItem = new ToolStripMenuItem();
+            sAIRToolStripMenuItem = new ToolStripMenuItem();
+            cONTATOSToolStripMenuItem = new ToolStripMenuItem();
+            cadastrarToolStripMenuItem = new ToolStripMenuItem();
+            categoriasToolStripMenuItem = new ToolStripMenuItem();
+            novoContatoToolStripMenuItem = new ToolStripMenuItem();
+            menuStrip1.SuspendLayout();
+            SuspendLayout();
+            // 
+            // menuStrip1
+            // 
+            menuStrip1.Items.AddRange(new ToolStripItem[] { aRQUIVOToolStripMenuItem, cONTATOSToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(800, 24);
+            menuStrip1.TabIndex = 0;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // aRQUIVOToolStripMenuItem
+            // 
+            aRQUIVOToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { sAIRToolStripMenuItem });
+            aRQUIVOToolStripMenuItem.Name = "aRQUIVOToolStripMenuItem";
+            aRQUIVOToolStripMenuItem.Size = new Size(70, 20);
+            aRQUIVOToolStripMenuItem.Text = "&ARQUIVO";
+            // 
+            // sAIRToolStripMenuItem
+            // 
+            sAIRToolStripMenuItem.Name = "sAIRToolStripMenuItem";
+            sAIRToolStripMenuItem.Size = new Size(180, 22);
+            sAIRToolStripMenuItem.Text = "&SAIR";
+            // 
+            // cONTATOSToolStripMenuItem
+            // 
+            cONTATOSToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadastrarToolStripMenuItem });
+            cONTATOSToolStripMenuItem.Name = "cONTATOSToolStripMenuItem";
+            cONTATOSToolStripMenuItem.Size = new Size(77, 20);
+            cONTATOSToolStripMenuItem.Text = "&CONTATOS";
+            // 
+            // cadastrarToolStripMenuItem
+            // 
+            cadastrarToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { categoriasToolStripMenuItem, novoContatoToolStripMenuItem });
+            cadastrarToolStripMenuItem.Name = "cadastrarToolStripMenuItem";
+            cadastrarToolStripMenuItem.Size = new Size(180, 22);
+            cadastrarToolStripMenuItem.Text = "Cadastrar";
+            // 
+            // categoriasToolStripMenuItem
+            // 
+            categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
+            categoriasToolStripMenuItem.Size = new Size(180, 22);
+            categoriasToolStripMenuItem.Text = "Categorias";
+            // 
+            // novoContatoToolStripMenuItem
+            // 
+            novoContatoToolStripMenuItem.Name = "novoContatoToolStripMenuItem";
+            novoContatoToolStripMenuItem.Size = new Size(180, 22);
+            novoContatoToolStripMenuItem.Text = "Novo Contato";
+            novoContatoToolStripMenuItem.Click += novoContatoToolStripMenuItem_Click;
+            // 
+            // FrmPrincipal
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(menuStrip1);
+            MainMenuStrip = menuStrip1;
+            Name = "FrmPrincipal";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "FrmPrincipal";
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem aRQUIVOToolStripMenuItem;
+        private ToolStripMenuItem sAIRToolStripMenuItem;
+        private ToolStripMenuItem cONTATOSToolStripMenuItem;
+        private ToolStripMenuItem cadastrarToolStripMenuItem;
+        private ToolStripMenuItem categoriasToolStripMenuItem;
+        private ToolStripMenuItem novoContatoToolStripMenuItem;
     }
 }
