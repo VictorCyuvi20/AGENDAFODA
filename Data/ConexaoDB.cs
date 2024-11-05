@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AGENDAFODA.Data
 {
-     internal static class ConexaoDB
+    internal static class ConexaoDB
     {
         static public MySqlConnection CriarConexao()
         {
