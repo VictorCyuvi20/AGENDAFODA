@@ -113,5 +113,10 @@ namespace AGENDAFODA
             }
 
         }
+
+        private void BTTCANCELAR_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
