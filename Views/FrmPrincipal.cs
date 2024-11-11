@@ -1,4 +1,4 @@
-﻿using AGENDAFODA.Categoria;
+﻿
 using AGENDAFODA.CONTROLER;
 using AGENDAFODA.Data;
 using System;
@@ -20,13 +20,16 @@ namespace AGENDAFODA.Views
             InitializeComponent();
         }
 
-        private void novoContatoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void sAIRToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddCategoria addcategoria = new AddCategoria();
-
-            bool resultado = addcategoria.AddCatego(categoria);
-
+            this.Close();
         }
 
+        private void categoriasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmCategoria FrmCategoria = new FrmCategoria();
+            FrmCategoria.ShowDialog();
+        }
     }
 }

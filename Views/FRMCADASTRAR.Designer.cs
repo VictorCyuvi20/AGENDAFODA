@@ -148,6 +148,7 @@
             BTTCANCELAR.TabIndex = 11;
             BTTCANCELAR.Text = "CANCELAR";
             BTTCANCELAR.UseVisualStyleBackColor = true;
+            BTTCANCELAR.Click += BTTCANCELAR_Click;
             // 
             // BRANCO
             // 

@@ -59,13 +59,14 @@
             sAIRToolStripMenuItem.Name = "sAIRToolStripMenuItem";
             sAIRToolStripMenuItem.Size = new Size(180, 22);
             sAIRToolStripMenuItem.Text = "&SAIR";
+            sAIRToolStripMenuItem.Click += sAIRToolStripMenuItem_Click;
             // 
             // cONTATOSToolStripMenuItem
             // 
             cONTATOSToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadastrarToolStripMenuItem });
             cONTATOSToolStripMenuItem.Name = "cONTATOSToolStripMenuItem";
-            cONTATOSToolStripMenuItem.Size = new Size(77, 20);
-            cONTATOSToolStripMenuItem.Text = "&CONTATOS";
+            cONTATOSToolStripMenuItem.Size = new Size(49, 20);
+            cONTATOSToolStripMenuItem.Text = "&Editar";
             // 
             // cadastrarToolStripMenuItem
             // 
@@ -79,13 +80,13 @@
             categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
             categoriasToolStripMenuItem.Size = new Size(180, 22);
             categoriasToolStripMenuItem.Text = "Categorias";
+            categoriasToolStripMenuItem.Click += categoriasToolStripMenuItem_Click;
             // 
             // novoContatoToolStripMenuItem
             // 
             novoContatoToolStripMenuItem.Name = "novoContatoToolStripMenuItem";
-            novoContatoToolStripMenuItem.Size = new Size(180, 22);
+            novoContatoToolStripMenuItem.Size = new Size(149, 22);
             novoContatoToolStripMenuItem.Text = "Novo Contato";
-            novoContatoToolStripMenuItem.Click += novoContatoToolStripMenuItem_Click;
             // 
             // FrmPrincipal
             // 
