@@ -35,6 +35,7 @@
             cadastrarToolStripMenuItem = new ToolStripMenuItem();
             categoriasToolStripMenuItem = new ToolStripMenuItem();
             novoContatoToolStripMenuItem = new ToolStripMenuItem();
+            usuáriosToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -57,13 +58,13 @@
             // sAIRToolStripMenuItem
             // 
             sAIRToolStripMenuItem.Name = "sAIRToolStripMenuItem";
-            sAIRToolStripMenuItem.Size = new Size(180, 22);
+            sAIRToolStripMenuItem.Size = new Size(98, 22);
             sAIRToolStripMenuItem.Text = "&SAIR";
             sAIRToolStripMenuItem.Click += sAIRToolStripMenuItem_Click;
             // 
             // cONTATOSToolStripMenuItem
             // 
-            cONTATOSToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadastrarToolStripMenuItem });
+            cONTATOSToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { cadastrarToolStripMenuItem, usuáriosToolStripMenuItem });
             cONTATOSToolStripMenuItem.Name = "cONTATOSToolStripMenuItem";
             cONTATOSToolStripMenuItem.Size = new Size(49, 20);
             cONTATOSToolStripMenuItem.Text = "&Editar";
@@ -85,8 +86,15 @@
             // novoContatoToolStripMenuItem
             // 
             novoContatoToolStripMenuItem.Name = "novoContatoToolStripMenuItem";
-            novoContatoToolStripMenuItem.Size = new Size(149, 22);
+            novoContatoToolStripMenuItem.Size = new Size(180, 22);
             novoContatoToolStripMenuItem.Text = "Novo Contato";
+            // 
+            // usuáriosToolStripMenuItem
+            // 
+            usuáriosToolStripMenuItem.Name = "usuáriosToolStripMenuItem";
+            usuáriosToolStripMenuItem.Size = new Size(180, 22);
+            usuáriosToolStripMenuItem.Text = "&Usuários";
+            usuáriosToolStripMenuItem.Click += usuáriosToolStripMenuItem_Click;
             // 
             // FrmPrincipal
             // 
@@ -113,5 +121,6 @@
         private ToolStripMenuItem cadastrarToolStripMenuItem;
         private ToolStripMenuItem categoriasToolStripMenuItem;
         private ToolStripMenuItem novoContatoToolStripMenuItem;
+        private ToolStripMenuItem usuáriosToolStripMenuItem;
     }
 }

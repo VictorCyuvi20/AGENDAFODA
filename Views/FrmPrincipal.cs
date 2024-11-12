@@ -31,5 +31,12 @@ namespace AGENDAFODA.Views
             FrmCategoria FrmCategoria = new FrmCategoria();
             FrmCategoria.ShowDialog();
         }
+
+        private void usuáriosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmUsuario frmUsuario = new FrmUsuario();
+            frmUsuario.ShowDialog();
+        }
     }
 }
