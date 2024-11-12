@@ -24,7 +24,7 @@ namespace AGENDAFODA.CONTROLLER
 
                 MySqlCommand comando = new MySqlCommand(sql, conexao);
 
-                comando.Parameters.AddWithValue("@nome_categoria", categoria);
+                comando.Parameters.AddWithValue("@categoria", categoria);
 
                 int linhasafetadas = comando.ExecuteNonQuery();
 
@@ -59,7 +59,7 @@ namespace AGENDAFODA.CONTROLLER
                 //Criar Conexão
                 conexao = ConexaoDB.CriarConexao();
 
-                string sql = "SELECT cod AS 'Código', nome_categoria as 'Categoria' FROM tbCategoria;";
+                string sql = "SELECT cod, nome_categoria FROM tbCategoria;";
 
                 conexao.Open();
                 //Adaptando o sql, conexão
