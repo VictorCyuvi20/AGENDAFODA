@@ -9,4 +9,7 @@ Create table tbUsuarios (
     senha Varchar(15) NOT NULL
     );
     
-    
+Create table tbCategoria (
+	cod INT auto_increment primary key,
+    nome_categoria Varchar(60) NOT NULL
+    );

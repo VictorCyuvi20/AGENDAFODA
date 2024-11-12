@@ -82,6 +82,7 @@
             Controls.Add(groupBox1);
             Name = "FrmCategoria";
             Text = "FrmCategoria";
+            Load += FrmCategoria_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)TABELA_CONTATOS).EndInit();
