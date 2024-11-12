@@ -86,5 +86,44 @@ namespace AGENDAFODA.CONTROLLER
           
         }
 
+        public bool ExCategoria(string codigo)
+        {
+            MySqlConnection conexao = null;
+            try
+            {
+                conexao = ConexaoDB.CriarConexao();
+
+                string sql = @"DELETE from tbCategoria WHERE (cod) VALUES (@codigo);";
+
+                conexao.Open();
+
+                MySqlCommand comando = new MySqlCommand(sql, conexao);
+
+                comando.Parameters.AddWithValue("@codigo", codigo);
+
+                int linhasafetadas = comando.ExecuteNonQuery();
+
+
+                if (linhasafetadas > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show($"Erro ao deletar a categoria: {erro.Message}");
+                return false;
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+        }
+
     }
 }
