@@ -19,6 +19,12 @@ namespace AGENDAFODA.Views
             InitializeComponent();
         }
 
+        private void atualizadatabela()
+        {
+            CategoriaController controlecategoria1 = new CategoriaController();
+            DataTable tabela = controlecategoria1.GetCategorias();
+            TABELA_CONTATOS.DataSource = tabela;
+        }
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
@@ -33,10 +39,12 @@ namespace AGENDAFODA.Views
 
             bool resultado = controlecategoria.AddCatego(CATEGORIA.Text);
 
+            atualizadatabela();
+
             if (resultado == true)
             {
                 MessageBox.Show("Cadastro realizado com sucesso!");
-  
+
             }
             else
             {
@@ -48,9 +56,25 @@ namespace AGENDAFODA.Views
 
         private void FrmCategoria_Load(object sender, EventArgs e)
         {
-            CategoriaController controlecategoria1 = new CategoriaController();
-            DataTable tabela = controlecategoria1.GetCategorias();
-            TABELA_CONTATOS.DataSource = tabela;
+
+            atualizadatabela();
+
+        }
+
+        private void TABELA_CONTATOS_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void BTT_EXClUIR_Click(object sender, EventArgs e)
+        {
+            int codigo = Convert.ToInt32(TABELA_CONTATOS.SelectedRows[0].Cells[0].Value);
+
+            CategoriaController categoriaController = new CategoriaController();
+            categoriaController.ExCategoria(codigo);
+
+            atualizadatabela();
+
         }
     }
 }

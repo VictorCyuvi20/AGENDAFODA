@@ -86,14 +86,14 @@ namespace AGENDAFODA.CONTROLLER
           
         }
 
-        public bool ExCategoria(string codigo)
+        public bool ExCategoria(int codigo)
         {
             MySqlConnection conexao = null;
             try
             {
                 conexao = ConexaoDB.CriarConexao();
 
-                string sql = @"DELETE from tbCategoria WHERE (cod) VALUES (@codigo);";
+                string sql = @"DELETE from tbCategoria WHERE cod = @codigo;";
 
                 conexao.Open();
 
