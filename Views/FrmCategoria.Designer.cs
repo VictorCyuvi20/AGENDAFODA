@@ -33,6 +33,7 @@
             BTT_CADASTRAR_CATE = new Button();
             CATEGORIA = new TextBox();
             TABELA_CONTATOS = new DataGridView();
+            button1 = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)TABELA_CONTATOS).BeginInit();
             SuspendLayout();
@@ -88,14 +89,26 @@
             TABELA_CONTATOS.TabIndex = 1;
             TABELA_CONTATOS.CellContentClick += TABELA_CONTATOS_CellContentClick;
             // 
+            // button1
+            // 
+            button1.Location = new Point(736, 195);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 2;
+            button1.Text = "↩ Voltar";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // FrmCategoria
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(823, 201);
+            ClientSize = new Size(823, 227);
+            Controls.Add(button1);
             Controls.Add(TABELA_CONTATOS);
             Controls.Add(groupBox1);
             Name = "FrmCategoria";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmCategoria";
             Load += FrmCategoria_Load;
             groupBox1.ResumeLayout(false);
@@ -111,5 +124,6 @@
         private TextBox CATEGORIA;
         private DataGridView TABELA_CONTATOS;
         private Button BTT_EXClUIR;
+        private Button button1;
     }
 }

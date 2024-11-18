@@ -15,7 +15,9 @@ namespace AGENDAFODA.CONTROLER
             try { 
 
                 MySqlConnection conexao = ConexaoDB.CriarConexao();
-                string sql = "INSERT INTO tbUsuarios (nome, usuario, telefone, senha) VALUES (@nome, @usuario, @telefone, @senha);";
+                string sql = "INSERT INTO tbUsuarios (nome, usuario, telefone, senha) VALUES (@nome, @usuario, @telefone, @senha);" +
+                    $"CREATE USER '{usuario}'@'%' IDENTIFIED BY  '@senha';" +
+                    $"GRANT ALL PRIVILEGES ON dbagenda.* TO '{usuario}'@'%';";
 
                 conexao.Open();
 
@@ -25,6 +27,7 @@ namespace AGENDAFODA.CONTROLER
                 comando.Parameters.AddWithValue("@usuario", usuario);
                 comando.Parameters.AddWithValue("@telefone", telefone);
                 comando.Parameters.AddWithValue("@senha", senha);
+                
 
                 int LinhasAfetadas = comando.ExecuteNonQuery();
 

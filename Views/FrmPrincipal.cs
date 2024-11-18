@@ -22,12 +22,11 @@ namespace AGENDAFODA.Views
 
         private void sAIRToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void categoriasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
             FrmCategoria FrmCategoria = new FrmCategoria();
             FrmCategoria.ShowDialog();
         }
