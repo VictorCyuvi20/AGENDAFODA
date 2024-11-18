@@ -17,5 +17,13 @@ namespace AGENDAFODA.Data
 
             return conexao;
         }
+        static public MySqlConnection CriarConexao(string conexao, string senha)
+        {
+            string stringConexao = $"Server=127.0.0.1;DAtabase=dbagenda;User ID=root;Password=root;";
+
+            MySqlConnection conexao = new MySqlConnection(stringConexao);
+
+            return conexao;
+        }
     }
 }
