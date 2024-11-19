@@ -1,4 +1,4 @@
-Create database Create database dbagenda;
+Create database dbagenda;
 
 use dbagenda; 
 
