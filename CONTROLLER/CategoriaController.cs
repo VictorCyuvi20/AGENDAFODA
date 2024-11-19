@@ -17,9 +17,9 @@ namespace AGENDAFODA.CONTROLLER
             try
             {
                 conexao = ConexaoDB.CriarConexao();
-    
-                string sql = @"INSERT INTO tbCategoria (nome_categoria) VALUES (@categoria);";
 
+                string sql = @"INSERT INTO tbCategoria (nome_categoria) VALUES (@categoria);";
+                         
                 conexao.Open();
 
                 MySqlCommand comando = new MySqlCommand(sql, conexao);
@@ -59,7 +59,7 @@ namespace AGENDAFODA.CONTROLLER
                 //Criar Conexão
                 conexao = ConexaoDB.CriarConexao();
 
-                string sql = "SELECT cod, nome_categoria FROM tbCategoria;";
+                string sql = "SELECT cod, nome_categoria, usuario FROM tbCategoria;";
 
                 conexao.Open();
                 //Adaptando o sql, conexão

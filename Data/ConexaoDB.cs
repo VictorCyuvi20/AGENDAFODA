@@ -19,7 +19,7 @@ namespace AGENDAFODA.Data
         }
         static public MySqlConnection CriarConexao(string usuario, string senha)
         {
-            string stringConexao = $"Server=127.0.0.1;DAtabase=dbagenda;User ID={usuario};Password={senha};";
+            string stringConexao = $"Server=localhost;DAtabase=dbagenda;User ID={VariabeGoblal.UserSession.usuario};Password={VariabeGoblal.UserSession.senha};";
 
             MySqlConnection conexao = new MySqlConnection(stringConexao);
 

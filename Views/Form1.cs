@@ -47,6 +47,8 @@ namespace AGENDAFODA
 
             if (resultado == true)
             {
+                VariabeGoblal.UserSession.usuario = INPUTEMAIL.Text;
+                VariabeGoblal.UserSession.senha = INPUTSENHA.Text;
                 this.Hide();
                 FrmPrincipal frmPrincipal = new FrmPrincipal();
                 frmPrincipal.Show();
