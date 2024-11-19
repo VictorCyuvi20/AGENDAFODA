@@ -44,6 +44,7 @@ namespace AGENDAFODA.Views
             if (resultado == true)
             {
                 MessageBox.Show("Cadastro realizado com sucesso!");
+                CATEGORIA.Text = "";
 
             }
             else
@@ -74,6 +75,8 @@ namespace AGENDAFODA.Views
             categoriaController.ExCategoria(codigo);
 
             atualizadatabela();
+
+            CATEGORIA.Text = "";
 
         }
 
