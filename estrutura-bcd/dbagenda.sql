@@ -1,4 +1,4 @@
-Create database dbagenda;
+Create database Create database dbagenda;
 
 use dbagenda; 
 
@@ -11,5 +11,20 @@ Create table tbUsuarios (
     
 Create table tbCategoria (
 	cod INT auto_increment primary key,
-    nome_categoria Varchar(60) NOT NULL
+    nome_categoria Varchar(60) NOT NULL,
+    usuario VARCHAR(20)
     );
+    
+DELIMITER $$
+
+Create trigger TrInsertCategoria 
+before
+INSERT
+ON tbCategoria
+FOR EACH ROW
+BEGIN
+	SET NEW.usuario = CURRENT_USER();
+END;
+$$
+
+DELIMITER ;
