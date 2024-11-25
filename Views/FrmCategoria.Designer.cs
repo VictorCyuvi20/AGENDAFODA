@@ -34,6 +34,7 @@
             CATEGORIA = new TextBox();
             TABELA_CONTATOS = new DataGridView();
             button1 = new Button();
+            button2 = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)TABELA_CONTATOS).BeginInit();
             SuspendLayout();
@@ -85,13 +86,13 @@
             TABELA_CONTATOS.Location = new Point(348, 12);
             TABELA_CONTATOS.Name = "TABELA_CONTATOS";
             TABELA_CONTATOS.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            TABELA_CONTATOS.Size = new Size(463, 177);
+            TABELA_CONTATOS.Size = new Size(463, 188);
             TABELA_CONTATOS.TabIndex = 1;
             TABELA_CONTATOS.CellContentClick += TABELA_CONTATOS_CellContentClick;
             // 
             // button1
             // 
-            button1.Location = new Point(736, 195);
+            button1.Location = new Point(736, 210);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 2;
@@ -99,11 +100,21 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // button2
+            // 
+            button2.Location = new Point(18, 189);
+            button2.Name = "button2";
+            button2.Size = new Size(308, 44);
+            button2.TabIndex = 3;
+            button2.Text = "ALTERAR";
+            button2.UseVisualStyleBackColor = true;
+            // 
             // FrmCategoria
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(823, 227);
+            ClientSize = new Size(823, 237);
+            Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(TABELA_CONTATOS);
             Controls.Add(groupBox1);
@@ -125,5 +136,6 @@
         private DataGridView TABELA_CONTATOS;
         private Button BTT_EXClUIR;
         private Button button1;
+        private Button button2;
     }
 }
