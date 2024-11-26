@@ -36,6 +36,7 @@
             categoriasToolStripMenuItem = new ToolStripMenuItem();
             novoContatoToolStripMenuItem = new ToolStripMenuItem();
             APENAS = new Label();
+            eNCERRARSESSÃOToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -50,15 +51,16 @@
             // 
             // aRQUIVOToolStripMenuItem
             // 
-            aRQUIVOToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { sAIRToolStripMenuItem });
+            aRQUIVOToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { sAIRToolStripMenuItem, eNCERRARSESSÃOToolStripMenuItem });
             aRQUIVOToolStripMenuItem.Name = "aRQUIVOToolStripMenuItem";
             aRQUIVOToolStripMenuItem.Size = new Size(70, 20);
             aRQUIVOToolStripMenuItem.Text = "&ARQUIVO";
+            aRQUIVOToolStripMenuItem.Click += aRQUIVOToolStripMenuItem_Click;
             // 
             // sAIRToolStripMenuItem
             // 
             sAIRToolStripMenuItem.Name = "sAIRToolStripMenuItem";
-            sAIRToolStripMenuItem.Size = new Size(98, 22);
+            sAIRToolStripMenuItem.Size = new Size(180, 22);
             sAIRToolStripMenuItem.Text = "&SAIR";
             sAIRToolStripMenuItem.Click += sAIRToolStripMenuItem_Click;
             // 
@@ -97,6 +99,13 @@
             APENAS.TabIndex = 1;
             APENAS.Text = "label1";
             // 
+            // eNCERRARSESSÃOToolStripMenuItem
+            // 
+            eNCERRARSESSÃOToolStripMenuItem.Name = "eNCERRARSESSÃOToolStripMenuItem";
+            eNCERRARSESSÃOToolStripMenuItem.Size = new Size(180, 22);
+            eNCERRARSESSÃOToolStripMenuItem.Text = "ENCERRAR SESSÃO";
+            eNCERRARSESSÃOToolStripMenuItem.Click += eNCERRARSESSÃOToolStripMenuItem_Click;
+            // 
             // FrmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -125,5 +134,6 @@
         private ToolStripMenuItem categoriasToolStripMenuItem;
         private ToolStripMenuItem novoContatoToolStripMenuItem;
         private Label APENAS;
+        private ToolStripMenuItem eNCERRARSESSÃOToolStripMenuItem;
     }
 }

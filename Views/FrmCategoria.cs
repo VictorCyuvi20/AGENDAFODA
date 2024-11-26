@@ -84,5 +84,17 @@ namespace AGENDAFODA.Views
         {
             this.Close();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int codigo = Convert.ToInt32(TABELA_CONTATOS.SelectedRows[0].Cells[0].Value);
+
+            string categoria = CATEGORIA.Text;
+
+            CategoriaController alterarcategoria = new CategoriaController();
+            alterarcategoria.AltCatego(codigo, categoria);
+
+            atualizadatabela();
+        }
     }
 }
