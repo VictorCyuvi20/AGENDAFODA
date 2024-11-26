@@ -35,6 +35,7 @@
             cadastrarToolStripMenuItem = new ToolStripMenuItem();
             categoriasToolStripMenuItem = new ToolStripMenuItem();
             novoContatoToolStripMenuItem = new ToolStripMenuItem();
+            APENAS = new Label();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -57,7 +58,7 @@
             // sAIRToolStripMenuItem
             // 
             sAIRToolStripMenuItem.Name = "sAIRToolStripMenuItem";
-            sAIRToolStripMenuItem.Size = new Size(180, 22);
+            sAIRToolStripMenuItem.Size = new Size(98, 22);
             sAIRToolStripMenuItem.Text = "&SAIR";
             sAIRToolStripMenuItem.Click += sAIRToolStripMenuItem_Click;
             // 
@@ -72,13 +73,13 @@
             // 
             cadastrarToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { categoriasToolStripMenuItem, novoContatoToolStripMenuItem });
             cadastrarToolStripMenuItem.Name = "cadastrarToolStripMenuItem";
-            cadastrarToolStripMenuItem.Size = new Size(180, 22);
+            cadastrarToolStripMenuItem.Size = new Size(124, 22);
             cadastrarToolStripMenuItem.Text = "Cadastrar";
             // 
             // categoriasToolStripMenuItem
             // 
             categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
-            categoriasToolStripMenuItem.Size = new Size(180, 22);
+            categoriasToolStripMenuItem.Size = new Size(149, 22);
             categoriasToolStripMenuItem.Text = "Categorias";
             categoriasToolStripMenuItem.Click += categoriasToolStripMenuItem_Click;
             // 
@@ -88,16 +89,26 @@
             novoContatoToolStripMenuItem.Size = new Size(149, 22);
             novoContatoToolStripMenuItem.Text = "Novo Contato";
             // 
+            // APENAS
+            // 
+            APENAS.Location = new Point(155, 63);
+            APENAS.Name = "APENAS";
+            APENAS.Size = new Size(427, 66);
+            APENAS.TabIndex = 1;
+            APENAS.Text = "label1";
+            // 
             // FrmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(APENAS);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "FrmPrincipal";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmPrincipal";
+            Load += FrmPrincipal_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
@@ -113,5 +124,6 @@
         private ToolStripMenuItem cadastrarToolStripMenuItem;
         private ToolStripMenuItem categoriasToolStripMenuItem;
         private ToolStripMenuItem novoContatoToolStripMenuItem;
+        private Label APENAS;
     }
 }

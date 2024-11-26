@@ -124,7 +124,5 @@ namespace AGENDAFODA.CONTROLLER
             }
 
         }
-        public bool UpdtCatego()
-
     }
 }
