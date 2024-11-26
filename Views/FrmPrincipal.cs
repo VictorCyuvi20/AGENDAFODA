@@ -30,5 +30,21 @@ namespace AGENDAFODA.Views
             FrmCategoria FrmCategoria = new FrmCategoria();
             FrmCategoria.ShowDialog();
         }
+
+        private void FrmPrincipal_Load(object sender, EventArgs e)
+        {
+            APENAS.Text = $"BEM-VINDO SENHOR(A): {VariabeGoblal.UserSession.nome.ToString()}, TENHA UM ÓTIMO DIA";
+
+        }
+
+        private void aRQUIVOToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void eNCERRARSESSÃOToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

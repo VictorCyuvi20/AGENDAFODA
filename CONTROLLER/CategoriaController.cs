@@ -59,11 +59,13 @@ namespace AGENDAFODA.CONTROLLER
                 //Criar Conexão
                 conexao = ConexaoDB.CriarConexao();
 
-                string sql = "SELECT cod, nome_categoria, usuario FROM tbCategoria;";
+                string sql = $"SELECT cod, nome_categoria, usuario FROM tbCategoria;";
 
                 conexao.Open();
                 //Adaptando o sql, conexão
                 MySqlDataAdapter adaptador = new MySqlDataAdapter(sql, conexao);
+
+
 
                 //Criou tabela
                 DataTable tabela = new DataTable();
@@ -124,7 +126,45 @@ namespace AGENDAFODA.CONTROLLER
             }
 
         }
-        public bool UpdtCatego()
+        public DataTable AltCatego(int cod, string categoria)
+        {
+            MySqlConnection conexao = null;
+            try
+            {
+                conexao = ConexaoDB.CriarConexao();
 
+                string sql = $"UPDATE tbCategoria SET nome_categoria = '{categoria}'" +
+                             $"WHERE cod = @codigo";
+
+                conexao.Open();
+
+                MySqlCommand comando = new MySqlCommand(sql, conexao);
+
+                comando.Parameters.AddWithValue("@codigo", cod);
+                comando.Parameters.AddWithValue("@categoria", categoria);
+
+                int linhasafetadas = comando.ExecuteNonQuery();
+
+
+                if (linhasafetadas > 0)
+                {
+                    return new DataTable();
+                }
+                else
+                {
+                    return new DataTable();
+                }
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show($"Erro ao efetuar a atualização da categoria: {erro.Message}");
+                return new DataTable();
+            }
+            finally
+            {
+                conexao.Close();
+            }
+
+        }
     }
 }

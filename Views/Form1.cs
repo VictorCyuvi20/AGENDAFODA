@@ -37,7 +37,7 @@ namespace AGENDAFODA
         }
 
         private void BTTENTRAR_Click(object sender, EventArgs e)
-        {
+        { 
             UsuarioController controleusuario = new UsuarioController();
 
             bool resultado = controleusuario.logUsuario(INPUTEMAIL.Text, INPUTSENHA.Text);
