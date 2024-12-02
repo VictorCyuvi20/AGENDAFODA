@@ -16,7 +16,7 @@ namespace AGENDAFODA.VariabeGoblal
         {
             get { return _usuario; }
             set {
-                value = value.ToUpper(); 
+                value = value; 
                  _usuario = value; }
         }
         public static string senha

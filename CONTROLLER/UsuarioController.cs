@@ -15,9 +15,9 @@ namespace AGENDAFODA.CONTROLER
         {
             try { 
 
-                MySqlConnection conexao = ConexaoDB.CriarConexao2(usuario, senha);
+                MySqlConnection conexao = ConexaoDB.CriarConexao();
                 string sql = "INSERT INTO tbUsuarios (nome, usuario, telefone, senha) VALUES (@nome, @usuario, @telefone, @senha);" +
-                    $"CREATE USER '{usuario}'@'%' IDENTIFIED BY  '@senha';" +
+                    $"CREATE USER '{usuario}'@'%' IDENTIFIED BY '{senha}';" +
                     $"GRANT ALL PRIVILEGES ON dbagenda.* TO '{usuario}'@'%';";
 
                 conexao.Open();
@@ -55,11 +55,11 @@ namespace AGENDAFODA.CONTROLER
         {
             try
             {
-                MySqlConnection conexao = ConexaoDB.CriarConexao2(usuario, senha);
+                MySqlConnection conexao = ConexaoDB.CriarConexao(); 9
 
-                string sql =  @"select usuario, senha, nome, telefone from tbUsuarios
-                               where usuario = @usuario
-                               and BINARY senha = @senha;";
+                string sql =  $@"select usuario, senha, nome, telefone from tbUsuarios
+                               where usuario = '{usuario}'
+                               and BINARY senha = {senha};";
 
                 conexao.Open();
 
@@ -86,8 +86,9 @@ namespace AGENDAFODA.CONTROLER
                 }
 
             }
-            catch
+            catch (Exception erro)
             {
+                MessageBox.Show($"{erro}");
                 return false;
             }
         }

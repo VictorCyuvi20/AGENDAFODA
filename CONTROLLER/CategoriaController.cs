@@ -1,4 +1,5 @@
 ﻿using AGENDAFODA.Data;
+using AGENDAFODA.VariabeGoblal;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ namespace AGENDAFODA.CONTROLLER
             MySqlConnection conexao = null;
             try
             {
-                conexao = ConexaoDB.CriarConexao();
+                conexao = ConexaoDB.CriarConexao2(UserSession.usuario, UserSession.senha);
 
                 string sql = @"INSERT INTO tbCategoria (nome_categoria) VALUES (@categoria);";
                          
@@ -57,9 +58,9 @@ namespace AGENDAFODA.CONTROLLER
             try
             {
                 //Criar Conexão
-                conexao = ConexaoDB.CriarConexao();
+                conexao = ConexaoDB.CriarConexao2(UserSession.usuario, UserSession.senha);
 
-                string sql = $"SELECT cod, nome_categoria, usuario FROM tbCategoria;";
+                string sql = $"SELECT cod, nome_categoria, usuario FROM tbCategoria WHERE usuario= User();";
 
                 conexao.Open();
                 //Adaptando o sql, conexão
@@ -93,9 +94,9 @@ namespace AGENDAFODA.CONTROLLER
             MySqlConnection conexao = null;
             try
             {
-                conexao = ConexaoDB.CriarConexao();
+                conexao = ConexaoDB.CriarConexao2(UserSession.usuario, UserSession.senha);
 
-                string sql = @"DELETE from tbCategoria WHERE cod = @codigo;";
+                string sql = $@"DELETE from tbCategoria WHERE cod = {codigo};";
 
                 conexao.Open();
 
@@ -131,17 +132,17 @@ namespace AGENDAFODA.CONTROLLER
             MySqlConnection conexao = null;
             try
             {
-                conexao = ConexaoDB.CriarConexao();
+                conexao = ConexaoDB.CriarConexao2(UserSession.usuario, UserSession.senha);
 
                 string sql = $"UPDATE tbCategoria SET nome_categoria = '{categoria}'" +
-                             $"WHERE cod = @codigo";
+                             $"WHERE cod = {cod}";
 
                 conexao.Open();
 
                 MySqlCommand comando = new MySqlCommand(sql, conexao);
 
-                comando.Parameters.AddWithValue("@codigo", cod);
-                comando.Parameters.AddWithValue("@categoria", categoria);
+                comando.Parameters.AddWithValue("@cod", cod);
+                comando.Parameters.AddWithValue("@nome_categoria", categoria);
 
                 int linhasafetadas = comando.ExecuteNonQuery();
 

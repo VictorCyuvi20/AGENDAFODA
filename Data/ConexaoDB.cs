@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using AGENDAFODA.VariabeGoblal;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace AGENDAFODA.Data
         }
         static public MySqlConnection CriarConexao2(string usuario, string senha)
         {
-            string stringConexao = $"Server=localhost;DAtabase=dbagenda;User ID={VariabeGoblal.UserSession.usuario};Password={VariabeGoblal.UserSession.senha};";
+            string stringConexao = $"Server=localhost;DAtabase=dbagenda;User ID={UserSession.usuario};Password={UserSession.senha};";
 
             MySqlConnection conexao = new MySqlConnection(stringConexao);
 
