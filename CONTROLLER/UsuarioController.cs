@@ -3,6 +3,7 @@ using AGENDAFODA.VariabeGoblal;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -51,15 +52,79 @@ namespace AGENDAFODA.CONTROLER
 
         }
 
-        public bool logUsuario(string usuario, string senha)
+        public bool DelUsuario(string usuario)
         {
+            MySqlConnection conexao = null;
             try
             {
-                MySqlConnection conexao = ConexaoDB.CriarConexao(); 9
+                conexao = ConexaoDB.CriarConexao();
+
+                string sql = "DELETE FROM tbUsuarios WHERE usuario = @usuario";
+                conexao.Open();
+                MySqlCommand comando = new MySqlCommand(sql, conexao);
+                comando.Parameters.AddWithValue("@usuario", usuario);
+                int linhasafetadas = comando.ExecuteNonQuery();
+                if (linhasafetadas > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show($"{erro.Message}");
+            }
+            finally
+            {
+                conexao.Close();
+            }
+        }
+    
+
+        public DataTable GetUsuarios()
+        {
+            MySqlConnection conexao = null;
+            try
+            {
+                conexao = ConexaoDB.CriarConexao();
+
+                string sql = @"Select nome, usuario, telefone, senha FROM tbUsuarios;";
+
+                conexao.Open();
+
+                MySqlDataAdapter adaptar = new MySqlDataAdapter(sql, conexao);
+
+                DataTable tabela = new DataTable();
+
+                adaptar.Fill(tabela);
+
+                return tabela;
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show($"{erro.Message}");
+                return new DataTable();
+            }
+
+            finally
+            {
+                conexao.Close();
+            }
+        }
+        public bool logUsuario(string usuario, string senha)
+        {
+
+            MySqlConnection conexao = null;
+            try
+            {
+                conexao = ConexaoDB.CriarConexao(); 
 
                 string sql =  $@"select usuario, senha, nome, telefone from tbUsuarios
-                               where usuario = '{usuario}'
-                               and BINARY senha = {senha};";
+                               where usuario = @usuario
+                               and BINARY senha = @senha;";
 
                 conexao.Open();
 
@@ -72,9 +137,9 @@ namespace AGENDAFODA.CONTROLER
 
                 if (resultado.Read())
                 {
-                    UserSession.usuario = resultado.GetString(0);
-                    UserSession.nome = resultado.GetString(2);
-                    UserSession.senha = resultado.GetString(1); 
+                    UserSession.usuario = resultado.GetString("usuario");
+                    UserSession.nome = resultado.GetString("nome");
+                    UserSession.senha = resultado.GetString("senha"); 
                     conexao.Close() ;
                     return true;
                 }
@@ -90,6 +155,11 @@ namespace AGENDAFODA.CONTROLER
             {
                 MessageBox.Show($"{erro}");
                 return false;
+            }
+
+            finally
+            {
+                conexao.Close();
             }
         }
     }

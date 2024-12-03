@@ -36,27 +36,27 @@ namespace AGENDAFODA
             habilitarbotaologin();
         }
 
-        private void BTTENTRAR_Click(object sender, EventArgs e)
-        { 
+        private void BTTENTRAR_Click(object sender, EventArgs e) { 
+
+
+            
+        
             UsuarioController controleusuario = new UsuarioController();
 
             bool resultado = controleusuario.logUsuario(INPUTEMAIL.Text, INPUTSENHA.Text);
 
-            
-
-
-            if (resultado == true)
-            {
-                VariabeGoblal.UserSession.usuario = INPUTEMAIL.Text;
-                VariabeGoblal.UserSession.senha = INPUTSENHA.Text;
-                this.Hide();
-                FrmPrincipal frmPrincipal = new FrmPrincipal();
-                frmPrincipal.Show();
-            }
-            else
-            {
-                MessageBox.Show("ERROR");
+                if (resultado == true)
+                {
+                    VariabeGoblal.UserSession.usuario = INPUTEMAIL.Text;
+                    VariabeGoblal.UserSession.senha = INPUTSENHA.Text;
+                    this.Hide();
+                    FrmPrincipal frmPrincipal = new FrmPrincipal();
+                    frmPrincipal.Show();
+                }
+                else
+                {
+                    MessageBox.Show("ERROR");
+                }
             }
         }
     }
-}
